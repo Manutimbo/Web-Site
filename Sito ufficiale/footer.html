@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reffel the Planet - Footer</title>
+    <style>
+        /* ===================== RESET BASE ===================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: #222222;
+            background-color: #ffffff;
+        }
+
+        /* Contenuto di prova */
+        .contenuto {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f6fb;
+        }
+
+        .contenuto h1 {
+            font-size: 48px;
+            color: #080666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contenuto p {
+            color: #555555;
+            margin-top: 10px;
+        }
+
+        /* ===================== FOOTER ===================== */
+        .footer {
+            background-color: #06044a;
+            color: rgba(255, 255, 255, 0.75);
+            padding: 60px 40px 30px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Griglia con 4 colonne */
+        .footer-griglia {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        /* ===== COLONNA 1: BRAND ===== */
+        .footer-brand {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand-gold {
+            color: #f5c842;
+        }
+
+        .footer-descrizione {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Social icons */
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icona {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            transition: all 0.25s;
+        }
+
+        .social-icona:hover {
+            border-color: #f5c842;
+            color: #f5c842;
+        }
+
+        /* ===== TITOLI COLONNE ===== */
+        .footer-titolo {
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #f5c842;
+            margin-bottom: 16px;
+        }
+
+        /* ===== LISTE DI LINK ===== */
+        .footer-lista {
+            list-style: none;
+        }
+
+        .footer-lista li {
+            margin-bottom: 10px;
+        }
+
+        .footer-lista a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.25s;
+        }
+
+        .footer-lista a:hover {
+            color: #f5c842;
+        }
+
+        /* ===== BARRA IN FONDO ===== */
+        .footer-basso {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.82rem;
+            opacity: 0.55;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        .footer-link-legali {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-link-legali a {
+            color: rgba(255, 255, 255, 0.55);
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+
+        .footer-link-legali a:hover {
+            color: #f5c842;
+        }
+
+        /* ===================== RESPONSIVE ===================== */
+        @media (max-width: 900px) {
+            .footer-griglia {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .footer {
+                padding: 40px 20px 24px;
+            }
+
+            .footer-griglia {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-basso {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-link-legali {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenuto di prova -->
+    <main class="contenuto">
+        <div>
+            <h1>Scorri per vedere il Footer</h1>
+            <p>Footer semplice solo HTML e CSS - Stile Reffel the Planet</p>
+        </div>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="footer-container">
+            
+            <!-- Griglia con 4 colonne -->
+            <div class="footer-griglia">
+                
+                <!-- Colonna 1: Brand e info -->
+                <div>
+                    <div class="footer-brand">
+                        Reffel <span class="footer-brand-gold">the Planet</span>
+                    </div>
+                    <p class="footer-descrizione">
+                        Energia pulita per un futuro sostenibile.<br>
+                        Sole, vento, responsabilita.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icona" title="Facebook">f</a>
+                        <a href="#" class="social-icona" title="Instagram">in</a>
+                        <a href="#" class="social-icona" title="LinkedIn">Li</a>
+                        <a href="#" class="social-icona" title="YouTube">Y</a>
+                    </div>
+                </div>
+
+                <!-- Colonna 2: Navigazione -->
+                <div>
+                    <h4 class="footer-titolo">Navigazione</h4>
+                    <ul class="footer-lista">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Servizi</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Contatti</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonna 3: Servizi -->
+                <div>
+                    <h4 class="footer-titolo">Servizi</h4>
+                    <ul class="footer-lista">
+                        <li><a href="#">Pannelli Fotovoltaici</a></li>
+                        <li><a href="#">Pale Eoliche</a></li>
+                        <li><a href="#">Sistemi di Accumulo</a></li>
+                        <li><a href="#">Manutenzione</a></li>
+                        <li><a href="#">Incentivi Fiscali</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonna 4: Contatti -->
+                <div>
+                    <h4 class="footer-titolo">Contatti</h4>
+                    <ul class="footer-lista">
+                        <li><a href="#">Via Energia Verde, 12 - Barletta</a></li>
+                        <li><a href="#">+39 0883 557483</a></li>
+                        <li><a href="#">info@reffeltheplanet.it</a></li>
+                        <li><a href="#">Lun-Ven: 8:30-18:00</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Barra in basso -->
+            <div class="footer-basso">
+                <span class="footer-copyright">2025 Reffel the Planet S.r.l. - P.IVA 00000000000 - Tutti i diritti riservati</span>
+                <div class="footer-link-legali">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
