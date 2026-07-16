@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reffel the Planet</title>
+<meta name="description" content="Reffel the Planet - Energia pulita per un futuro sostenibile. Scopri i nostri prodotti innovativi che utilizzano sole e acqua per un domani migliore e soprattutto ecologico.">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="energia pulita, sostenibilità, sole, acqua, vento, prodotti innovativi, Reffel the Planet">
+<link rel="icon" type="image/png" href="immagini/favicon.png">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+:root { 
+    --blu: #080666;
+    --blu-light: #1a18a0;
+    --gold: #f5c842;
+    --green: #2ecc71;
+    --white: #ffffff;
+    --gray-bg: #f4f6fb;
+    --text: #1a1a2e;
+    --bianco: #ffffff;
+    --verde: #2ecc71;
+}
+
+body { font-family: Arial, Helvetica, sans-serif;
+       font-size: 16px;
+       color: #222222;
+       background-color: #ffffff;
+}      
+* { margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Navbar */
+nav { background-color: rgba(8, 6, 102, 0.95); 
+      padding: 0 50px; 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000;
+      align-items: center;
+      display: flex;
+      min-height: 80px;
+}
+nav ul { display: flex;  
+         list-style: none; 
+         padding: 0; 
+         margin: 0 auto; 
+         gap: 0;
+}
+nav a { color: white; 
+        font-family: 'Barlow Condensed', sans-serif;
+        display: block;
+        border-bottom: 2px solid transparent;
+        text-decoration: none; 
+        padding: 10px 22px; 
+        transition: all none; 
+        font-weight: 550;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 1rem;
+}
+nav a:hover, nav a.active { color: var(--gold);
+                            border-bottom-color: var(--gold);
+}
+/* Logo + img logo */
+.logo-container { order: -1; /* logo sulla sinistra */
+}
+.logo-container img { height: 70px;
+                      width: auto;
+                      display: block;
+                      background-color: transparent;
+}
+/*I nostri servizi + titoloinizio*/
+.titolo { background: var(--blu-light);
+          color: var(--white);
+          padding: 90px 60px 70px;
+          position: relative;
+          overflow: hidden;
+}
+.titolo .titoloinizio { display: inline-block;
+                        background: var(--gold);
+                        color: var(--blu);
+                        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                        font-weight: 700;
+                        letter-spacing: 2px;
+                        font-size: .85rem;
+                        text-transform: uppercase;
+                        padding: 5px 16px;
+                        border-radius: 2px;
+                        margin-bottom: 16px;
+}
+.titolo h1 { font-family: 'Barlow Condensed', sans-serif;
+             font-size: 3.8rem;
+             font-weight: 800;
+             text-transform: uppercase;
+             line-height: 1;
+             margin-bottom: 16px;
+}
+.titolo p { font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 560px;
+            opacity: .7;
+}
+/*Servizi trasporto */
+.serviziotrasporto { padding: 80px 60px;
+}
+.serviziotrasporto:nth-child(even) {background-color: var(--gray-bg);}
+.trasporto { display: grid;
+             grid-template-columns: 1fr 1fr;
+             gap: 48px;
+             align-items: center;
+             max-width: 1100px;
+             margin: 0 auto;   
+}
+/* cambia la direzione della 3 griglia da sinistra a destra*/
+.montaggio { direction: rtl;}
+.montaggio > * { direction: ltr;}
+@media (max-width: 768px) {
+      nav { padding: 0 16px; }
+      .titolo { padding: 60px 20px 50px; }
+      .titolo h1 { font-size: 2.4rem; }
+      .serviziotrasporto { padding: 50px 20px; }
+      .trasporto { grid-template-columns: 1fr; }
+}
+.titoloh { font-family: 'Barlow Condensed', Arial, sans-serif;
+           font-size: 2.4rem;
+           font-weight: 800;
+           text-transform: uppercase;
+           color: var(--blu);
+           margin-bottom: 12px;
+}
+.testoservizio { font-size: 1rem;
+                 line-height:  1.75;
+                 color: #444444;
+}
+.immagine { border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(8, 6, 102, 0.15);
+}
+.immagine img { width: 100%;
+                height: 320px;
+                object-fit: cover;
+                display: block;
+}
+.lista  { list-style: none;
+          padding: 0;
+          margin-top: 24px;
+}
+.lista li { display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid #e8ecf5;
+}
+.lista li:last-child { border-bottom: none;}
+.numero { width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background-color: var(--blu);
+          color: var(--gold);
+          font-family: 'Barlow Condensed', Arial, sans-serif;
+          font-weight: 800;
+          font-size: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          margin-top: 2px;
+}
+.testopassaggio {  margin: 0;
+                   font-size: 1rem;
+                   color: #444444;
+                   line-height: 1.6; 
+}
+.testopassaggio strong { color: var(--blu);
+                         font-weight: 600;
+                         display: block;
+                         margin-bottom: 2px;
+}
+/*Sezione prezzi*/
+.sezioneprezzi { background-color: var(--blu);
+                 color: var(--bianco);
+                 padding: 90px 60px;
+}
+.prezzicentro { text-align: center;
+                margin-bottom: 50px;
+}
+/* Etichetta "Investimento" */
+.etichettaoro {  display: inline-block;
+                 background-color: var(--gold);
+                 color: var(--blu);
+                 font-family: 'Barlow Condensed', sans-serif;
+                 font-weight: 700;
+                 letter-spacing: 2px;
+                 font-size: 0.85rem;
+                 text-transform: uppercase;
+                 padding: 5px 16px;
+                 border-radius: 2px;
+                 margin-bottom: 16px;
+}
+.titoloprezzi { font-family: 'Barlow Condensed', sans-serif;
+                font-size: 2.6rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+}
+.sottotitoloprezzi { font-weight: 300;
+                     opacity: 0.8;
+} 
+/* Griglia delle tre card */
+.grigliaprezzi { display: grid;
+                 grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                 gap: 24px;
+                 max-width: 1100px;
+                 margin: 0 auto;
+} 
+@media (max-width: 768px) { .sezione-prezzi { padding: 60px 20px; }
+                            .griglia-prezzi { grid-template-columns: 1fr; }}
+/*  CARD PREZZO */
+.cardprezzo { background-color: rgba(255, 255, 255, 0.07);
+              border: 1px solid rgba(255, 255, 255, 0.15);
+              border-radius: 16px;
+              padding: 36px 28px;
+              position: relative;
+              transition: background 0.3s, transform 0.3s;
+}
+ 
+.card-prezzo:hover { background-color: rgba(255, 255, 255, 0.12);
+                     transform: translateY(-6px);
+}
+ 
+/* Card in evidenza (bordo oro) */
+.card-prezzoevidenza { border-color: var(--gold);
+                       background-color: rgba(245, 200, 66, 0.07);
+}
+ 
+/* Badge "Più richiesto" */
+.badgeevidenza { position: absolute;
+                 top: -14px;
+                 left: 50%;
+                 transform: translateX(-50%);
+                 background-color: var(--gold);
+                 color: var(--blu);
+                 font-family: 'Barlow Condensed', sans-serif;
+                 font-weight: 700;
+                 font-size: 0.8rem;
+                 letter-spacing: 1px;
+                 text-transform: uppercase;
+                 padding: 4px 18px;
+                 border-radius: 20px;
+}
+ 
+.cardnome { font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+            margin-bottom: 6px;
+}
+.cardvalore { font-family: 'Barlow Condensed', sans-serif;
+              font-size: 3rem;
+              font-weight: 800;
+              line-height: 1;
+              margin: 16px 0 6px;
+} 
+.cardvalore small { font-size: 1rem;
+                    opacity: 0.6;
+}
+.carddescrizione { font-size: 0.88rem;
+                   opacity: 0.65;
+                   margin-bottom: 24px;
+} 
+.cardlista { list-style: none;
+             padding: 0;
+} 
+.cardlista li { padding: 8px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                font-size: 0.9rem;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+} 
+.cardlista li:last-child { border-bottom: none;
+} 
+ /* Spunta verde prima di ogni voce */
+.cardlista li::before { content: '✓';
+                        color: var(--verde);
+                        font-weight: 700;
+}
+ 
+/* Bottone "Richiedi preventivo" */
+.bottoneoro { display: inline-block;
+              margin-top: 28px;
+              background-color: var(--gold);
+              color: var(--blu);
+              font-family: 'Barlow Condensed', sans-serif;
+              font-weight: 700;
+              font-size: 1rem;
+              letter-spacing: 1px;
+              text-transform: uppercase;
+              padding: 12px 32px;
+              border-radius: 6px;
+              text-decoration: none;
+              transition: opacity 0.25s;
+}
+ .bottoneoro:hover { opacity: 0.85;
+                     color: var(--blu);
+}
+ /*  FOOTER  */
+footer { background: #06044a;
+         color: rgba(255,255,255,.75);
+         padding: 60px 60px 30px;
+}
+footer .footer-brand { font-family: 'Barlow Condensed', sans-serif;
+                       font-size: 1.6rem;
+                       font-weight: 800;
+                       color: var(--white);
+                       text-transform: uppercase;
+                       letter-spacing: 1px;
+                       margin-bottom: 10px;
+}
+footer .footer-brand span {color: var(--gold); }
+footer p.tagline { font-size: .9rem;
+                   opacity: .6;
+                   margin-bottom: 0;
+}
+
+footer h6 { font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+            margin-bottom: 16px;
+}
+footer ul { list-style: none;
+            padding: 0;
+}
+footer ul li { margin-bottom: 8px; }
+footer ul li a { color: rgba(255,255,255,.65);
+                 text-decoration: none;
+                 font-size: .9rem;
+                 transition: color .25s;
+}
+footer ul li a:hover { color: var(--gold); }
+footer .footer-bottom { border-top: 1px solid rgba(255,255,255,.1);
+                        margin-top: 50px;
+                        padding-top: 24px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        gap: 10px;
+                        font-size: .82rem;
+                        opacity: .55;
+}
+.social-links { display: flex;
+                gap: 12px; 
+}
+.social-links a { color: rgba(255,255,255,.6);
+                  width: 36px;
+                  height: 36px;
+                  border: 1px solid rgba(255,255,255,.2);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: .9rem;
+                  text-decoration: none;
+                  transition: all .25s;
+}
+.social-links a:hover { border-color: var(--gold);
+                        color: var(--gold);
+}
+@media(max-width:768px){ nav.site-nav { padding: 0 16px;
+                                        flex-wrap: wrap;
+                                        min-height: 60px;}
+nav.site-nav ul { gap: 0;
+                  flex-wrap: wrap;
+                  justify-content: center; }
+.features-grid { padding: 20px 16px 50px; }
+.savings-section { padding: 60px 20px; }
+footer { padding: 40px 20px 24px; }
+.carousel-caption h2 { font-size: 2rem; }}
+ 
+</style>
+<body>
+<header>
+<!-- Navbar -->
+<nav class="navbar">
+<ul>
+    <li><a href="Index.html">Home</a></li>
+    <li><a href="Servizi.html">Servizi</a></li>
+    <li><a href="News.html">News</a></li>
+    <li><a href="Contatti.html">Contatti</a></li>
+</ul>
+<!-- Logo -->
+<div class="logo-container">
+    <a href="Home.html" style="display: block; text-decoration: none;">
+        <img src="immagini/logo1.png" alt="Logo di Reffel the Planet">
+    </a>
+</div>
+</nav>
+</header>
+<!--I nostri servizi(trasporto) + Titolo inizio + titolo testo(titolo) + paragrafo testo(testopassaggio) + img -->
+<div class="titolo">
+    <span class="titoloinizio">I Nostri Servizi</span>
+    <h1>Tutto ciò di<br>cui hai bisogno</h1>
+    <p class="testoinizio">Dal trasporto all'installazione, dalla manutenzione agli incentivi fiscali: offriamo un servizio completo e su misura per privati, aziende e imprese.</p>
+</div>
+<!-- Sezione Trasporto-->
+<section class="serviziotrasporto">
+<div class="trasporto">
+    <div>
+     <h2 class="titoloh">Trasporto &amp; Logistica</h2>
+     <p class="testo">I materiali viaggiano in sicurezza direttamente dal nostro magazzino alla tua proprietà.Gestiamo l'intera filiera logistica per garantire tempi certi e zero danni durante il trasporto.</p>
+        <ul class="lista">
+            <li>
+              <div class="numero">1</div>
+              <p class="testopassaggio"><strong>Sopralluogo gratuito</strong>Un nostro tecnico visita il sito per valutare l'esposizione, la portata del tetto e le esigenze specifiche.</p>
+            </li>
+            <li>
+              <div class="numero">2</div>
+              <p class="testopassaggio"><strong>Progettazione personalizzata</strong>Creiamo un progetto ad hoc con la configurazione ottimale per il tuo consumo.</p>
+            </li>
+            <li>
+                <div class="numero">3</div>
+                <p class="testopassaggio"><strong>Consegna coordinata</strong>Tutti i componenti arrivano in un'unica consegna, imballati e certificati.</p>
+            </li>
+            <li>
+                <div class="numero">4</div>
+                <p class="testopassaggio"><strong>Stoccaggio temporaneo</strong>Se necessario, offriamo soluzioni di stoccaggio per i materiali in attesa dell'installazione.</p>
+            </li>
+        </ul>
+    </div>
+            <div class="immagine">
+                <img src="immagini/trasporto1.jpg" alt="Trasporto pannelli">
+            </div>
+</div>
+</section>
+<!-- Sezione Montaggio-->
+<section class="serviziotrasporto">
+    <div class="trasporto montaggio">
+        <div>
+            <h2 class="titoloh">Montaggio &amp; Installazione</h2>
+            <p class="testo">Il nostro team di installatori certificati lavora con precisione e cura.Ogni pannello viene posizionato, orientato e cablato seguendo le normative vigentie i più alti standard di qualità.</p>
+             <ul class="lista">
+                <li>
+                    <div class="numero">1</div>
+                    <p class="testopassaggio"><strong>Struttura di ancoraggio</strong>Installiamo guide e supporti certificati, senza compromettere l'impermeabilità del tetto.</p>
+                </li>
+                <li>
+                    <div class="numero">2</div>
+                    <p class="testopassaggio"><strong>Posa dei pannelli</strong>Ogni modulo viene fissato, allineato e verificato per massimizzare la captazione solare</p>
+                </li>
+                <li>
+                    <div class="numero">3</div>
+                    <p class="testopassaggio"><strong>Impianto elettrico</strong>Collegamento inverter, quadri elettrici e, se previsto, sistema di accumulo con batterie.</p>
+                </li>
+                <li>
+                    <div class="numero">4</div>
+                    <p class="testopassaggio"><strong>Collaudo e avvio</strong>Test completo dell'impianto con misurazione delle prestazioni e consegna della documentazione.</p>
+                </li>
+             </ul>
+        </div>
+                  <div class="immagine">
+                    <img src="immagini/installazione.jpg" alt="Installazione">
+                  </div>
+    </div>
+</section>
+<!--Sezione Manutenzione-->
+<section class="serviziotrasporto">
+<div class="trasporto">
+    <div>
+     <h2 class="titoloh">Manutenzione &amp; Assistenza</h2>
+     <p class="testo">  Un impianto ben mantenuto produce fino al 20% in più. Offriamo piani di manutenzione
+          programmata con interventi periodici per tenere il tuo sistema sempre al massimo dell'efficienza.</p>
+        <ul class="lista">
+            <li>
+              <div class="numero">1</div>
+              <p class="testopassaggio"><strong>Check-up semestrale</strong>Ispezione visiva e strumentale di pannelli, cablaggi, inverter e struttura.</p>
+            </li>
+            <li>
+              <div class="numero">2</div>
+              <p class="testopassaggio"><strong>Pulizia professionale</strong>Rimozione di polvere, muschio e depositi che riducono la resa produttiva.</p>
+            </li>
+            <li>
+                <div class="numero">3</div>
+                <p class="testopassaggio"><strong>Monitoraggio da remoto</strong>Il nostro NOC monitora 24/7 le prestazioni e ti avvisa in caso di anomalie.</p>
+            </li>
+            <li>
+                <div class="numero">4</div>
+                <p class="testopassaggio"><strong>Intervento urgente</strong>Garantiamo interventi di riparazione entro 48 ore su tutto il territorio servito.</p>
+            </li>
+        </ul>
+    </div>
+            <div class="immagine">
+                <img src="immagini/manutenzione.jpg" alt="Manutenzione">
+            </div>
+</div>
+</section>
+<!--Sezione Prezzi-->
+<section class="sezioneprezzi">
+    <div class="prezzicentro">
+      <span class="etichettaoro">Investimento</span>
+      <h2 class="titoloprezzi">Piani e costi trasparenti</h2>
+      <p class="sottotitoloprezzi">Prezzi chiari senza sorprese. Scegli il pacchetto più adatto oppure contattaci per un preventivo personalizzato.</p>
+    </div>
+  <div class="grigliaprezzi">
+<!-- Card 1 -->
+    <div class="cardprezzo">
+      <p class="cardnome">Residenziale Base</p>
+      <p class="cardvalore">€ 5.500 <small> € 8.000</small></p>
+      <p class="carddescrizione">Impianto da 3-4 kWp ideale per appartamenti e villette</p>
+        <ul class="cardlista">
+          <li>6-10 pannelli monocristallini</li>
+          <li>Inverter di stringa</li>
+          <li>Monitoraggio app incluso</li>
+          <li>Pratiche incentivi GSE</li>
+          <li>Garanzia 10 anni struttura</li>
+        </ul>
+      <a href="Contatti.html" class="bottoneoro">Richiedi preventivo</a>
+    </div>
+<!-- Card 2 -->
+  <div class="cardprezzo cardprezzoevidenza">
+    <span class="badgeevidenza">Più richiesto</span>
+    <p class="cardnome">Residenziale Plus</p>
+    <p class="cardvalore">€ 9.000 <small> € 14.000</small></p>
+    <p class="carddescrizione">Impianto da 6-8 kWp con accumulo - massima autonomia</p>
+      <ul class="cardlista">
+        <li>12-18 pannelli ad alta efficienza</li>
+        <li>Inverter ibrido + batteria 10 kWh</li>
+        <li>Monitoraggio smart in tempo reale</li>
+        <li>Pratiche detrazione 50%</li>
+        <li>Garanzia 25 anni prodotto</li>
+        <li>Manutenzione primo anno inclusa</li>
+      </ul>
+        <a href="Contatti.html" class="bottoneoro">Richiedi preventivo</a>
+  </div>
+<!-- Card 3 -->
+  <div class="cardprezzo">
+    <p class="cardnome">Business &amp; Industria</p>
+    <p class="cardvalore">Su misura</p>
+    <p class="carddescrizione">Impianti da 20 kWp in su per aziende, capannoni e PMI</p>
+      <ul class="cardlista">
+        <li>Progettazione dedicata</li>
+        <li>Impianto trifase + accumulo</li>
+        <li>Analisi ROI e piano finanziario</li>
+        <li>Incentivi Transizione 5.0</li>
+        <li>Contratto di manutenzione pluriennale</li>
+        <li>Referente commerciale dedicato</li>
+      </ul>
+        <a href="Contatti.html" class="bottoneoro">Contattaci</a>
+  </div>
+
+
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer>
+  <div class="row g-5">
+    <div class="col-lg-4">
+      <div class="footer-brand">Reffel <span>the Planet</span></div>
+      <p class="tagline">Energia pulita per un futuro sostenibile.<br>Sole, vento, responsabilità.</p>
+      <div class="social-links mt-4">
+        <a href="#" title="Facebook">f</a>
+        <a href="#" title="Instagram">in</a>
+        <a href="#" title="LinkedIn">Li</a>
+        <a href="#" title="YouTube">▶</a>
+      </div>
+    </div>
+    <div class="col-6 col-lg-2">
+      <h6>Navigazione</h6>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="Servizi.html">Servizi</a></li>
+        <li><a href="News.html">News</a></li>
+        <li><a href="Contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-lg-3">
+      <h6>Servizi</h6>
+      <ul>
+        <li><a href="Servizi.html">Pannelli Fotovoltaici</a></li>
+        <li><a href="Servizi.html">Pale Eoliche</a></li>
+        <li><a href="Servizi.html">Sistemi di Accumulo</a></li>
+        <li><a href="Servizi.html">Manutenzione</a></li>
+        <li><a href="Servizi.html">Incentivi Fiscali</a></li>
+      </ul>
+    </div>
+    <div class="col-lg-3">
+      <h6>Contatti</h6>
+      <ul>
+        <li><a href="#">📍 Via Energia Verde, 12 – Barletta (BT)</a></li>
+        <li><a href="tel:+390883000000">📞 +39 0883 557483</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#9bf2f5fdf4dbe9fefdfdfef7eff3feebf7faf5feefb5f2ef">✉️ <span class="__cf_email__" data-cfemail="4920272f26093b2c2f2f2c253d212c392528272c3d67203d">email&#160;:ReffelthePlanet@gmail.com</span></a></li>
+        <li><a href="#">🕐 Lun–Ven: 8:30–18:00</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Reffel the Planet S.r.l. – P.IVA 00000000000 – Tutti i diritti riservati</span>
+    <span>Privacy Policy &nbsp;|&nbsp; Cookie Policy</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

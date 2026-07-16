@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reffel the Planet</title>
+<meta name="description" content="Reffel the Planet - Energia pulita per un futuro sostenibile. Scopri i nostri prodotti innovativi che utilizzano sole e acqua per un domani migliore e soprattutto ecologico.">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="energia pulita, sostenibilità, sole, acqua, vento, prodotti innovativi, Reffel the Planet">
+<link rel="icon" type="image/png" href="immagini/favicon.png">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+:root { --blu: #080666;
+        --blu-light: #1a18a0;
+        --gold: #f5c842;
+        --green: #2ecc71;
+        --white: #ffffff;
+        --gray-bg: #f4f6fb;
+        --text: #1a1a2e;
+}
+body { margin: 0;
+       padding: 0;
+}      
+* { margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Navbar */
+nav { background-color: rgba(8, 6, 102, 0.95); 
+      padding: 0 50px; 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000;
+      align-items: center;
+      display: flex;
+      min-height: 80px;
+}
+nav ul { display: flex;  
+         list-style: none; 
+         padding: 0; 
+         margin: 0 auto; 
+         gap: 0;
+}
+nav a { color: white; 
+        font-family: 'Barlow Condensed', sans-serif;
+        display: block;
+        border-bottom: 2px solid transparent;
+        text-decoration: none; 
+        padding: 10px 22px; 
+        transition: all none; 
+        font-weight: 550;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 1rem;
+}
+nav a:hover, nav a.active { color: var(--text);
+                            border-bottom-color: var(--gold);
+}
+/* Logo + img logo */
+.logo-container { order: -1; /* logo sulla sinistra */
+}
+.logo-container img { height: 70px;
+                      width: auto;
+                      display: block;
+                      background-color: transparent;
+}
+/* HERO */
+.titolo { background: linear-gradient(135deg, var(--blu) 0%, var(--blu-light) 60%, var(--blu) 100%);
+          color: var(--white);
+          padding: 90px 60px 70px;
+          position: relative;
+          overflow: hidden;
+}
+.titolo::before { content: '';
+                  position: absolute;
+                  top: -60px; right: -60px;
+                  width: 340px; height: 340px;
+                  border-radius: 50%;
+                  border: 60px solid rgba(245, 200, 66, .08);
+}
+.titoloinizio { display: inline-block;
+                background: var(--gold);
+                color: var(--blu);
+                font-family: 'Barlow Condensed', sans-serif;
+                font-weight: 700;
+                letter-spacing: 2px;
+                font-size: .85rem;
+                text-transform: uppercase;
+                padding: 5px 16px;
+                border-radius: 2px;
+                margin-bottom: 16px;
+}
+.titolo h1 { font-family: 'Barlow Condensed', sans-serif;
+             font-size: 3.8rem;
+             font-weight: 800;
+             text-transform: uppercase;
+             line-height: 1;
+             margin-bottom: 16px;
+}
+.titolo p { font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 560px;
+            opacity: .85; 
+} 
+/* ARTICOLI */
+.sezione-news { padding: 80px 60px; }
+.articolo { max-width: 1100px;
+            margin: 0 auto 80px;
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 56px;
+            align-items: start;
+}
+.articolo-inverso { direction: rtl; }
+.articolo-inverso > * { direction: ltr; }
+
+.articolo + .articolo { padding-top: 80px;
+                        border-top: 1px solid #e4e8f2;
+}
+.articolo-immagine { border-radius: 16px;
+                     overflow: hidden;
+                     box-shadow: 0 12px 40px rgba(8, 6, 102, 0.13);
+}
+.articolo-immagine img { width: 100%;
+                         height: 360px;
+                         object-fit: cover;
+                         display: block;
+}
+.articolo-corpo { display: flex;
+                  flex-direction: column; 
+}
+.articolo-meta { display: flex;
+                 align-items: center;
+                 gap: 12px;
+                 margin-bottom: 16px;
+                 flex-wrap: wrap;
+}
+.articolo-categoria { display: inline-block;
+                      background: var(--gold);
+                      color: var(--blu);
+                      font-family: 'Barlow Condensed', sans-serif;
+                      font-weight: 700;
+                      font-size: 0.75rem;
+                      text-transform: uppercase;
+                      letter-spacing: 1.5px;
+                      padding: 3px 12px;
+                      border-radius: 2px;
+}
+.articolo-titolo { font-family: 'Barlow Condensed', sans-serif;
+                   font-size: 2rem;
+                   font-weight: 800;
+                   text-transform: uppercase;
+                   color: var(--blu);
+                   line-height: 1.1;
+                   margin-bottom: 14px;
+}
+.articolo-intro { font-size: 1rem;
+                  color: #333;
+                  line-height: 1.75;
+                  margin-bottom: 16px;
+                  font-weight: 500;
+}
+.articolo-testo { font-size: 0.95rem;
+                  color: #555;
+                  line-height: 1.8;
+                  margin-bottom: 14px;
+}
+.articolo-box { background: var(--gray-bg);
+                border-left: 4px solid var(--gold);
+                border-radius: 0 10px 10px 0;
+                padding: 18px 20px;
+                margin: 20px 0;
+}
+.articolo-box-titolo { font-family: 'Barlow Condensed', sans-serif;
+                       font-weight: 700;
+                       font-size: 0.9rem;
+                       text-transform: uppercase;
+                       letter-spacing: 1px;
+                       color: var(--blu);
+                       margin-bottom: 10px;
+}
+.articolo-box ul { list-style: none;
+                   padding: 0;
+}
+.articolo-box ul li { font-size: 0.9rem;
+                      color: #444;
+                      padding: 5px 0;
+                      display: flex;
+                      align-items: flex-start;
+                      gap: 8px;
+                      line-height: 1.5;
+}
+.articolo-box ul li::before { content: '✓';
+                              color: var(--green);
+                              font-weight: 700;
+                              flex-shrink: 0;
+                              margin-top: 1px;
+}
+.articolo-cta { display: inline-block;
+                margin-top: 8px;
+                background: var(--blu);
+                color: var(--white);
+                font-family: 'Barlow Condensed', sans-serif;
+                font-weight: 700;
+                font-size: 0.95rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                padding: 11px 28px;
+                border-radius: 6px;
+                text-decoration: none;
+                transition: background .25s, transform .15s;
+                align-self: flex-start;
+}
+.articolo-cta:hover { background: var(--blu-light);
+                      transform: translateY(-2px); 
+} 
+/* BANNER STATISTICHE */
+.banner-stat { background: var(--blu);
+               color: var(--white);
+               padding: 60px 60px; 
+}
+.banner-stat-griglia { display: grid;
+                       grid-template-columns: repeat(4, 1fr);
+                       gap: 24px;
+                       max-width: 1100px;
+                       margin: 0 auto;
+                       text-align: center;
+}
+.statnum { font-family: 'Barlow Condensed', sans-serif;
+           font-size: 3rem;
+           font-weight: 800;
+           color: var(--gold);
+           line-height: 1;
+}
+.stattesto { font-size: 0.9rem;
+             opacity: 0.75;
+             margin-top: 6px; 
+}
+ /*  FOOTER  */
+footer { background: #06044a;
+         color: rgba(255,255,255,.75);
+         padding: 60px 60px 30px;
+}
+footer .footer-brand { font-family: 'Barlow Condensed', sans-serif;
+                       font-size: 1.6rem;
+                       font-weight: 800;
+                       color: var(--white);
+                       text-transform: uppercase;
+                       letter-spacing: 1px;
+                       margin-bottom: 10px;
+}
+footer .footer-brand span {color: var(--gold); }
+footer p.tagline { font-size: .9rem;
+                   opacity: .6;
+                   margin-bottom: 0;
+}
+
+footer h6 { font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+            margin-bottom: 16px;
+}
+footer ul { list-style: none;
+            padding: 0;
+}
+footer ul li { margin-bottom: 8px; }
+footer ul li a { color: rgba(255,255,255,.65);
+                 text-decoration: none;
+                 font-size: .9rem;
+                 transition: color .25s;
+}
+footer ul li a:hover { color: var(--gold); }
+footer .footer-bottom { border-top: 1px solid rgba(255,255,255,.1);
+                        margin-top: 50px;
+                        padding-top: 24px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        gap: 10px;
+                        font-size: .82rem;
+                        opacity: .55;
+}
+.social-links { display: flex;
+                gap: 12px; 
+}
+.social-links a { color: rgba(255,255,255,.6);
+                  width: 36px;
+                  height: 36px;
+                  border: 1px solid rgba(255,255,255,.2);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: .9rem;
+                  text-decoration: none;
+                  transition: all .25s;
+}
+.social-links a:hover { border-color: var(--gold);
+                        color: var(--gold);
+}
+@media(max-width:768px){ nav.site-nav { padding: 0 16px;
+                                        flex-wrap: wrap;
+                                        min-height: 60px;}
+nav.site-nav ul { gap: 0;
+                  flex-wrap: wrap;
+                  justify-content: center; }
+.features-grid { padding: 20px 16px 50px; }
+.savings-section { padding: 60px 20px; }
+footer { padding: 40px 20px 24px; }
+.carousel-caption h2 { font-size: 2rem; }}
+</style>
+</body>
+<header>
+<nav class="navbar">
+<ul>
+    <li><a href="Index.html">Home</a></li>
+    <li><a href="Servizi.html">Servizi</a></li>
+    <li><a href="News.html">News</a></li>
+    <li><a href="Contatti.html">Contatti</a></li>
+</ul>
+<div class="logo-container">
+    <a href="Home.html" style="display: block; text-decoration: none;">
+        <img src="immagini/logo1.png" alt="Logo di Reffel the Planet">
+    </a>
+</div>
+</nav>
+<!-- HERO -->
+<div class="titolo">
+  <span class="titoloinizio">Ultime Notizie</span>
+  <h1>News &amp;<br>Aggiornamenti</h1>
+  <p>Approfondimenti su incentivi fiscali, nuove tecnologie fotovoltaiche e consigli pratici per chi vuole investire nell'energia pulita.</p>
+</div>
+ 
+<!-- ARTICOLI -->
+<section class="sezione-news">
+ 
+  <!-- ARTICOLO 1 -->
+  <article class="articolo">
+    <div class="articolo-immagine">
+      <img src="immagini/incentivi1.jpg" alt="Transizione 5.0 incentivi 2025">
+    </div>
+    <div class="articolo-corpo">
+      <div class="articolo-meta">
+        <span class="articolo-categoria">Incentivi</span>
+      </div>
+      <h2 class="articolo-titolo">Transizione 5.0: la guida completa agli incentivi 2026</h2>
+      <p class="articolo-intro">Il piano Transizione 5.0 mette a disposizione delle imprese italiane oltre 6,3 miliardi di euro per investimenti in efficienza energetica e fonti rinnovabili. È la misura più importante degli ultimi anni per chi vuole installare un impianto fotovoltaico in azienda.</p>
+      <p class="articolo-testo">L'agevolazione si traduce in un credito d'imposta che varia dal 35% al 45% della spesa sostenuta, a seconda della riduzione dei consumi energetici ottenuta. Per accedere è necessario che l'impianto produca una riduzione del fabbisogno energetico del processo produttivo di almeno il 3%, oppure una riduzione dei consumi dell'intera struttura di almeno il 5%.</p>
+      <p class="articolo-testo">Il credito è cumulabile con altre agevolazioni regionali e con ulteriori detrazioni, a patto di non superare il 100% del costo sostenuto. La domanda si presenta tramite il Gestore dei Servizi Energetici (GSE) con documentazione tecnica redatta da un professionista abilitato. Reffel the Planet gestisce l'intera pratica per i propri clienti senza costi aggiuntivi.</p>
+      <div class="articolo-box">
+        <div class="articolo-box-titolo">Cosa copre l'incentivo</div>
+        <ul>
+          <li>Impianti fotovoltaici e sistemi di accumulo abbinati</li>
+          <li>Inverter, quadri elettrici e cablaggio dedicato</li>
+          <li>Software di monitoraggio e gestione energetica</li>
+          <li>Progettazione e installazione a cura di imprese certificate</li>
+          <li>Pratiche burocratiche GSE incluse nel nostro servizio</li>
+        </ul>
+      </div>
+      <a href="Contatti.html" class="articolo-cta">Richiedi una consulenza gratuita →</a>
+    </div>
+  </article>
+ 
+  <!-- ARTICOLO 2 -->
+  <article class="articolo articolo-inverso">
+    <div class="articolo-immagine">
+      <img src="immagini/news2.jpg" alt="Pannelli TOPCon alta efficienza">
+    </div>
+    <div class="articolo-corpo">
+      <div class="articolo-meta">
+        <span class="articolo-categoria">Tecnologia</span>
+      </div>
+      <h2 class="articolo-titolo">Pannelli TOPCon: la nuova generazione ad alta efficienza</h2>
+      <p class="articolo-intro">I moduli fotovoltaici TOPCon (Tunnel Oxide Passivated Contact) rappresentano oggi la tecnologia più avanzata disponibile sul mercato residenziale e commerciale. Con rendimenti che superano il 23%, stanno rapidamente sostituendo i classici pannelli PERC.</p>
+      <p class="articolo-testo">La differenza rispetto alla tecnologia precedente sta nello strato di ossido di silicio ultra-sottile applicato sul retro della cella: questo riduce la ricombinazione degli elettroni, aumentando la corrente generata a parità di superficie. Un impianto da 6 kWp con moduli TOPCon produce mediamente il 5–8% in più rispetto a un impianto equivalente con moduli PERC.</p>
+      <p class="articolo-testo">Il vantaggio si fa sentire soprattutto nelle giornate nuvolose e nelle ore di bassa irradiazione. Per il Sud Italia, dove il caldo eccessivo può ridurre l'efficienza, i TOPCon offrono un migliore coefficiente di temperatura: perdono meno potenza all'aumentare del calore rispetto ai moduli convenzionali, risultando ideali per climi come quello pugliese.</p>
+      <div class="articolo-box">
+        <div class="articolo-box-titolo">TOPCon vs PERC: confronto rapido</div>
+        <ul>
+          <li>Efficienza TOPCon: 22–23,5% · PERC: 19–21%</li>
+          <li>Degrado annuo TOPCon: meno dello 0,4% · PERC: 0,5–0,7%</li>
+          <li>Resa con luce diffusa superiore del 6–8%</li>
+          <li>Garanzia prodotto: 25–30 anni su tutta la gamma</li>
+          <li>Costo leggermente superiore, ammortizzato in 12–18 mesi</li>
+        </ul>
+      </div>
+      <a href="Contatti.html" class="articolo-cta">Scopri i moduli che installiamo →</a>
+    </div>
+  </article>
+ 
+  <!-- ARTICOLO 3 -->
+  <article class="articolo">
+    <div class="articolo-immagine">
+      <img src="immagini/news3.jpg" alt="Sistemi di accumulo batterie">
+    </div>
+    <div class="articolo-corpo">
+      <div class="articolo-meta">
+        <span class="articolo-categoria">Accumulo</span>
+      </div>
+      <h2 class="articolo-titolo">Sistemi di accumulo: quando conviene abbinarli al fotovoltaico</h2>
+      <p class="articolo-intro">Installare un sistema di accumulo insieme ai pannelli fotovoltaici permette di usare l'energia prodotta anche di notte, portando l'autoconsumo dall'abituale 30–40% fino all'80% o più. Ma conviene sempre? Ecco cosa sapere prima di decidere.</p>
+      <p class="articolo-testo">Un impianto senza accumulo immette in rete l'energia in eccesso ricevendo un corrispettivo dallo scambio sul posto spesso inferiore al costo dell'energia prelevata la sera. Con una batteria da 10 kWh, quella stessa energia viene conservata e consumata quando serve, con un risparmio effettivo sulla bolletta fino a 900–1.200 € l'anno per una famiglia media del Sud Italia.</p>
+      <p class="articolo-testo">Il tempo di ritorno dell'investimento per un sistema di accumulo si aggira oggi tra i 6 e i 9 anni, grazie al calo dei prezzi delle batterie al litio LFP (litio ferro fosfato), più sicure e durature rispetto alle precedenti tecnologie. I sistemi ibridi moderni permettono inoltre di programmare la ricarica automatica nelle ore in cui l'energia dalla rete è più economica, moltiplicando ulteriormente i risparmi annuali.</p>
+      <div class="articolo-box">
+        <div class="articolo-box-titolo">Quando l'accumulo conviene di più</div>
+        <ul>
+          <li>Consumi concentrati la sera (famiglie, ristoranti, negozi)</li>
+          <li>Zona con frequenti interruzioni di corrente</li>
+          <li>Contratto energetico con tariffa bioraria attiva</li>
+          <li>Impianto da 4 kWp in su con produzione in eccesso</li>
+          <li>Accesso agli incentivi Transizione 5.0 o detrazione 50%</li>
+        </ul>
+      </div>
+      <a href="Contatti.html" class="articolo-cta">Calcola il tuo risparmio →</a>
+    </div>
+  </article>
+ 
+</section>
+ 
+<!-- BANNER STATISTICHE -->
+<div class="banner-stat">
+  <div class="banner-stat-griglia">
+    <div>
+      <div class="statnum">+1.200</div>
+      <div class="stattesto">Impianti installati in Italia</div>
+    </div>
+    <div>
+      <div class="statnum">98%</div>
+      <div class="stattesto">Clienti soddisfatti</div>
+    </div>
+    <div>
+      <div class="statnum">25 anni</div>
+      <div class="stattesto">Garanzia prodotto</div>
+    </div>
+    <div>
+      <div class="statnum">€ 0</div>
+      <div class="stattesto">Costo sopralluogo</div>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<footer>
+  <div class="row g-5">
+    <div class="col-lg-4">
+      <div class="footer-brand">Reffel <span>the Planet</span></div>
+      <p class="tagline">Energia pulita per un futuro sostenibile.<br>Sole, vento, responsabilità.</p>
+      <div class="social-links mt-4">
+        <a href="#" title="Facebook">f</a>
+        <a href="#" title="Instagram">in</a>
+        <a href="#" title="LinkedIn">Li</a>
+        <a href="#" title="YouTube">▶</a>
+      </div>
+    </div>
+    <div class="col-6 col-lg-2">
+      <h6>Navigazione</h6>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="Servizi.html">Servizi</a></li>
+        <li><a href="News.html">News</a></li>
+        <li><a href="Contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-lg-3">
+      <h6>Servizi</h6>
+      <ul>
+        <li><a href="Servizi.html">Pannelli Fotovoltaici</a></li>
+        <li><a href="Servizi.html">Pale Eoliche</a></li>
+        <li><a href="Servizi.html">Sistemi di Accumulo</a></li>
+        <li><a href="Servizi.html">Manutenzione</a></li>
+        <li><a href="Servizi.html">Incentivi Fiscali</a></li>
+      </ul>
+    </div>
+    <div class="col-lg-3">
+      <h6>Contatti</h6>
+      <ul>
+        <li><a href="#">📍 Via Energia Verde, 12 – Barletta (BT)</a></li>
+        <li><a href="tel:+390883000000">📞 +39 0883 557483</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#9bf2f5fdf4dbe9fefdfdfef7eff3feebf7faf5feefb5f2ef">✉️ <span class="__cf_email__" data-cfemail="4920272f26093b2c2f2f2c253d212c392528272c3d67203d">email&#160;:ReffelthePlanet@gmail.com</span></a></li>
+        <li><a href="#">🕐 Lun–Ven: 8:30–18:00</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Reffel the Planet S.r.l. – P.IVA 00000000000 – Tutti i diritti riservati</span>
+    <span>Privacy Policy &nbsp;|&nbsp; Cookie Policy</span>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
